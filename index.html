@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Online - Cuba</title>
+    <title>Catálogo Profesional Multirubro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>🍕 Mi Tienda Digital</h1>
-        <p>Precios actualizados al momento</p>
+        <div class="header-content">
+            <h1>🏪 Mi Tienda Online</h1>
+            <p>Todo lo que necesitas en un solo lugar</p>
+            
+            <div id="filtros" class="filtros-container">
+                <button class="btn-filtro active" onclick="filtrarProductos('todos', event)">Todos</button>
+                <button class="btn-filtro" onclick="filtrarProductos('Comida', event)">Comida</button>
+                <button class="btn-filtro" onclick="filtrarProductos('Electrodomésticos', event)">Electro</button>
+                <button class="btn-filtro" onclick="filtrarProductos('Aseo', event)">Aseo</button>
+            </div>
+        </div>
     </header>
 
     <main id="contenedor-productos">
-        <p class="cargando">Cargando catálogo...</p>
+        <div class="loader">Cargando productos...</div>
     </main>
 
     <footer>
-        <p>&copy; 2024 - Soluciones Digitales para Emprendedores</p>
+        <p>&copy; 2024 - Catálogo Inteligente para Emprendedores</p>
     </footer>
 
     <script src="script.js"></script>
