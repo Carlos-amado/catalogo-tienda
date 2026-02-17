@@ -3,34 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Profesional Multirubro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tienda Online Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-store"></i> Mi Tienda
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </nav>
+
     <header>
-        <div class="header-content">
-            <h1>🏪 Mi Tienda Online</h1>
-            <p>Todo lo que necesitas en un solo lugar</p>
-            
-            <div id="filtros" class="filtros-container">
-                <button class="btn-filtro active" onclick="filtrarProductos('todos', event)">Todos</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Comida', event)">Comida</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Electrodomésticos', event)">Electro</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Aseo', event)">Aseo</button>
-            </div>
+        <div class="filtros-scroll">
+            <button class="btn-filtro active" onclick="filtrarProductos('todos', event)">Todos</button>
+            <button class="btn-filtro" onclick="filtrarProductos('Comida', event)">Comida</button>
+            <button class="btn-filtro" onclick="filtrarProductos('Bebidas', event)">Bebidas</button>
+            <button class="btn-filtro" onclick="filtrarProductos('Electrodomésticos', event)">Electrodomésticos</button>
+            <button class="btn-filtro" onclick="filtrarProductos('Aseo', event)">Aseo</button>
         </div>
     </header>
 
     <main id="contenedor-productos">
-        <div class="loader">Cargando productos...</div>
+        <div class="loader"><i class="fas fa-spinner fa-spin"></i> Cargando catálogo...</div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 - Catálogo Inteligente para Emprendedores</p>
-    </footer>
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Tu carrito está vacío 😔</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total a Pagar:</span>
+                <span id="cart-total">0 CUP</span>
+            </div>
+            <button onclick="enviarPedido()" class="btn-checkout">
+                <i class="fab fa-whatsapp"></i> Enviar Pedido
+            </button>
+        </div>
+    </div>
+    
+    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+    <div id="toast">¡Producto agregado!</div>
 
     <script src="script.js"></script>
 </body>
